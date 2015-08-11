@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en_US">
+<head>
+	<title>Form Lab With Error Checking</title>
+	<script src="javascript/checkers.js" type="text/javascript"> </script>
+  <style type="text/css">
+div.text label,
+div.textinvalid label {
+ margin: 0;
+ padding: 0;
+ display: block;
+ padding-top: .25em;
+}
+
+div.text input,
+div.textinvalid input {
+ margin: 0;
+ padding: 0;
+ display: inline;
+}
+
+form div.error {
+  display: none;
+  border: thin solid red;
+  padding: .25em; 
+  color: red;
+  font-size: 80%;
+}
+
+.offscreen {
+    position: absolute;
+    top: -30em;
+    left: -300em;
+    }
+}
+
+  </style>
+</head>
+<body>
+	<div> 
+    <h1>Forms test with Error Checking</h1> 
+    <p>Fields marked with an * are required.</p> 
+    <form id="SampleForm" action="#" method="post"> 
+      <div class="text"> 
+         
+        <label for="fname"> 
+          First Name 
+          * 
+        </label> 
+         
+        <input type="text" 
+                    name="fname" 
+                    id="fname" 
+                    size="12" 
+                    onblur="checkFirst(event)" 
+                    required 
+                    aria-invalid="false" 
+                    aria-describedby="fname_error"/> 
+          <div class="error" id="fname_error" role="alert"></div> 
+      </div> 
+       
+      <div class="text"> 
+        <label for="lname"> 
+          Last Name 
+          *
+        </label> 
+        <input type="text" 
+                    name="lname" 
+                    id="lname" 
+                    size="20" 
+                    onblur="checkLast(event)"
+                    aria-required="true"               
+                    aria-invalid="false" 
+                    aria-describedby="lname_error"/> 
+          <div class="error" id="lname_error" role="alert"></div> 
+      </div> 
+
+      <div class="button"> 
+        <input type="button" 
+                    value="Check Form" 
+                    onclick="#"/> 
+      </div> 
+    </form> 
+
+  </div> 
+</body>
+</html>
